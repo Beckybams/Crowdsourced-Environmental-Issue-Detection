@@ -1,0 +1,9 @@
+import pickle
+with open("best_model_random_forest.pkl","rb") as f:
+    saved = pickle.load(f)
+model = saved["model"]
+tfidf = saved["tfidf"]
+meta_cols = saved["meta_cols"]
+# Example: vectorize new text then predict:
+X_new_text_tfidf = tfidf.transform([ "Smoke from factory near Riverside Park" ])
+# if metadata available, build meta array in same order as meta_cols and combine before predict
